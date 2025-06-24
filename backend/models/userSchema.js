@@ -29,7 +29,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
     minLength: [10, "Nic Must Contain Exact 10 Digits!"],
-    maxLength: [10, "Nic Must Contain Exact 13 Digits!"],
+    maxLength: [10, "Nic Must Contain Exact 10 Digits!"],
   },
   dob:{
     type:Date,

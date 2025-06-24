@@ -56,12 +56,24 @@ export const login = catchAsyncErrors(async (req,res,next)=>{
   if(role !==user.role){
     return next(new ErrorHandler("User With This Role Not Found!",400));
   }
-  generateToken(user,"User Logged In Succesfully!",200,res);
-//   res.status(200).json({
-//     success:true,
-//     message:"User Logged In Succesfully!",
-// });
+    // 3. Choose message based on role
+  let message = "Login successful!";
+  if (user.role === "Admin") {
+    message = "Admin Logged In Successfully!";
+  } else if (user.role === "Patient") {
+    message = "Patient Logged In Successfully!";
+  } else if (user.role === "Doctor") {
+    message = "Doctor Logged In Successfully!";
+  }
+    // 4. Generate token and send response
+  generateToken(user, message, 200, res);
 });
+//   generateToken(user,"User Logged In Succesfully!",200,res);
+// //   res.status(200).json({
+// //     success:true,
+// //     message:"User Logged In Succesfully!",
+// // });
+// });
 
 export const addNewAdmin= catchAsyncErrors(async(req,res,next)=>{
   const { firstName, lastName, email, phone, nic, dob, gender, password} =

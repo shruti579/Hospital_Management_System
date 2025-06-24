@@ -45,7 +45,7 @@ const Dashboard = () => {
     }
   };
 
-  const { isAuthenticated, admin } = useContext(Context);
+  const { isAuthenticated, user } = useContext(Context);
   if (!isAuthenticated) {
     return <Navigate to={"/login"} />;
   }
@@ -60,8 +60,8 @@ const Dashboard = () => {
               <div>
                 <p>Hello ,</p>
                 <h5>
-                  {admin &&
-                    `${admin.firstName} ${admin.lastName}`}{" "}
+                  {user &&
+                    `${user.firstName} ${user.lastName}`}{" "}
                 </h5>
               </div>
               <p>

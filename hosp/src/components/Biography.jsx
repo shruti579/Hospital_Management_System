@@ -10,26 +10,16 @@ const Biography = ({imageUrl}) => {
           <p>Biography</p>
           <h3>Who We Are</h3>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
-            blanditiis sequi aperiam. Debitis fugiat harum ex maxime illo
-            consequatur mollitia voluptatem omnis nihil nesciunt beatae esse
-            ipsam, sapiente totam aspernatur porro ducimus aperiam nisi. Ex
-            magnam voluptatum consectetur reprehenderit fugiat recusandae aut
-            similique illum natus velit, praesentium nostrum nesciunt. Deleniti,
-            nesciunt laboriosam totam iusto!
-          </p>
-          <p>We are all in 2025!</p>
-          <p>We are working on a MERN STACK PROJECT.</p>
+         Welcome to ZeeCare, your trusted partner in managing your healthcare needs conveniently and efficiently. At ZeeCare, we understand the challenges individuals face when it comes to scheduling doctor appointments and managing their health records.
+         </p>
+         <p> ZeeCare is committed to excellence in healthcare technology. We continuously strive to enhance our platform, integrating the latest advancements to improve user experience and deliver superior service. Whether you're booking your first appointment or managing ongoing care, ZeeCare is here to support you every step of the way.</p>
+          {/* <p>We are all in 2025!</p> */}
+          <h3>Our Vision</h3>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores
-            assumenda exercitationem accusamus sit repellendus quo optio dolorum
-            corporis corrupti. Quas similique vel minima veniam tenetur
-            obcaecati atque magni suscipit laboriosam! Veniam vitae minus nihil
-            cupiditate natus provident. Ex illum quasi pariatur odit nisi
-            voluptas illo qui ipsum mollitia. Libero, assumenda?
+         Our vision at ZeeCare is to create a seamless healthcare experience for every user. We aim to bridge the gap between patients and healthcare providers, making it easier for you to access the care you need, when you need it.
           </p>
-          <p>Lorem ipsum dolor sit amet!</p>
-          <p>Coding is fun!</p>
+          {/* <p>Lorem ipsum dolor sit amet!</p>
+          <p>Coding is fun!</p> */}
         </div>
       </div>
   )
