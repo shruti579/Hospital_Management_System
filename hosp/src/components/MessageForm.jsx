@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
+import { motion } from "motion/react";
 
 const MessageForm = () => {
   const [firstName, setFirstName] = useState("");
@@ -37,17 +38,24 @@ const MessageForm = () => {
   return (
     <>
       <div className="container form-component message-form">
-        <h2>Send Us A Message</h2>
+        <motion.h2
+          initial={{ y: -20, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
+          Send Us A Message
+        </motion.h2>
         <form onSubmit={handleMessage}>
           <div>
-            <input className="capitalinp"
+            <input
+              className="capitalinp"
               type="text"
               placeholder="First Name"
-              
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
             />
-            <input className="capitalinp"
+            <input
+              className="capitalinp"
               type="text"
               placeholder="Last Name"
               value={lastName}
@@ -74,8 +82,16 @@ const MessageForm = () => {
             value={message}
             onChange={(e) => setMessage(e.target.value)}
           />
-          <div  style={{ justifyContent: "center", alignItems: "center" }}>
-            <button className="formbtn" type="submit">Send</button>
+          <div style={{ justifyContent: "center", alignItems: "center" }}>
+            <motion.button
+              initial={{ y: 30, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="formbtn"
+              type="submit"
+            >
+              Send
+            </motion.button>
           </div>
         </form>
         <img src="/Vector.png" alt="vector" />

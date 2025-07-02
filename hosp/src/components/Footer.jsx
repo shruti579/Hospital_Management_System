@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FaLocationArrow, FaPhone } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
+import { motion } from "motion/react";
 
 const Footer = () => {
   const hours = [
@@ -43,10 +44,16 @@ const Footer = () => {
         <hr />
         <div className="content">
           <div>
-            <img src="/logo.png" alt="logo" className="logo-img"/>
+            <img src="/logo.png" alt="logo" className="logo-img" />
           </div>
           <div>
-            <h4>Quick Links</h4>
+            <motion.h4
+              initial={{ y: 100, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+            >
+              Quick Links
+            </motion.h4>
             <ul>
               <Link to={"/"}>Home</Link>
               <Link to={"/appointment"}>Appointment</Link>
@@ -54,7 +61,13 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <h4>Hours</h4>
+            <motion.h4
+              initial={{ y: 100, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+            >
+              Hours
+            </motion.h4>
             <ul>
               {hours.map((element) => (
                 <li key={element.id}>
@@ -65,7 +78,13 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <h4>Contact</h4>
+            <motion.h4
+              initial={{ y: 100, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+            >
+              Contact
+            </motion.h4>
             <div>
               <FaPhone />
               <span>999-999-9999</span>

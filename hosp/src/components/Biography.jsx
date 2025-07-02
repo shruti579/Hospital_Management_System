@@ -1,13 +1,15 @@
 import React from 'react'
+import {motion} from "motion/react"
 
 const Biography = ({imageUrl}) => {
   return (
     <div className="container biography">
-        <div className="banner">
+        <motion.div  initial={{scale:0}} whileInView={{scale:1}} transition={{duration: 0.8 , type:'spring',stifness:100}} className="banner">
           <img src={imageUrl} alt="whoweare" />
-        </div>
+        </motion.div>
         <div className="banner">
-          <p>Biography</p>
+          <motion.h2 initial={{x:100, opacity:0}} whileInView={{x:0, opacity:1}} transition={{duration:0.3, ease:'easeOut'}} >
+            Biography</motion.h2>
           <h3>Who We Are</h3>
           <p>
          Welcome to ZeeCare, your trusted partner in managing your healthcare needs conveniently and efficiently. At ZeeCare, we understand the challenges individuals face when it comes to scheduling doctor appointments and managing their health records.

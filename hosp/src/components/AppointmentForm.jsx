@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { motion } from "motion/react";
 
 const AppointmentForm = () => {
   const [firstName, setFirstName] = useState("");
@@ -31,8 +32,8 @@ const AppointmentForm = () => {
     "ENT",
   ];
 
-  const  navigateTo=useNavigate()
-  
+  const navigateTo = useNavigate();
+
   const [doctors, setDoctors] = useState([]);
   useEffect(() => {
     const fetchDoctors = async () => {
@@ -65,7 +66,7 @@ const AppointmentForm = () => {
           doctor_firstName: doctorFirstName,
           doctor_lastName: doctorLastName,
           hasVisited: hasVisitedBool,
-          address
+          address,
         },
         {
           withCredentials: true,
@@ -74,19 +75,19 @@ const AppointmentForm = () => {
       );
       toast.success(data.message);
       navigateTo("/");
-    //   setFirstName(""),
-    //     setLastName(""),
-    //     setEmail(""),
-    //     setPhone(""),
-    //     setNic(""),
-    //     setDob(""),
-    //     setGender(""),
-    //     setAppointmentDate(""),
-    //     setDepartment(""),
-    //     setDoctorFirstName(""),
-    //     setDoctorLastName(""),
-    //     setHasVisited(""),
-    //     setAddress("");
+      //   setFirstName(""),
+      //     setLastName(""),
+      //     setEmail(""),
+      //     setPhone(""),
+      //     setNic(""),
+      //     setDob(""),
+      //     setGender(""),
+      //     setAppointmentDate(""),
+      //     setDepartment(""),
+      //     setDoctorFirstName(""),
+      //     setDoctorLastName(""),
+      //     setHasVisited(""),
+      //     setAddress("");
     } catch (error) {
       toast.error(error.response.data.message);
     }
@@ -95,16 +96,24 @@ const AppointmentForm = () => {
   return (
     <>
       <div className="container form-component appointment-form">
-        <h2>Appointment</h2>
+        <motion.h2
+          initial={{ x: -100, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
+        >
+          Appointment
+        </motion.h2>
         <form onSubmit={handleAppointment}>
           <div>
-            <input className="capitalinp"
+            <input
+              className="capitalinp"
               type="text"
               placeholder="First Name"
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
             />
-            <input className="capitalinp"
+            <input
+              className="capitalinp"
               type="text"
               placeholder="Last Name"
               value={lastName}
@@ -141,7 +150,9 @@ const AppointmentForm = () => {
           </div>
           <div>
             <select value={gender} onChange={(e) => setGender(e.target.value)}>
-              <option value="" disabled>Select Gender</option>
+              <option value="" disabled>
+                Select Gender
+              </option>
               <option value="Male">Male</option>
               <option value="Female">Female</option>
             </select>
@@ -161,7 +172,9 @@ const AppointmentForm = () => {
                 setDoctorLastName("");
               }}
             >
-                <option value="" disabled>Select Departments</option>
+              <option value="" disabled>
+                Select Departments
+              </option>
               {departmentsArray.map((depart, index) => {
                 return (
                   <option value={depart} key={index}>
@@ -177,7 +190,7 @@ const AppointmentForm = () => {
                 setDoctorFirstName(firstName);
                 setDoctorLastName(lastName);
               }}
-              disabled={!department} 
+              disabled={!department}
             >
               <option value="">Select Doctor</option>
               {doctors
@@ -213,7 +226,16 @@ const AppointmentForm = () => {
               style={{ flex: "none", width: "25px" }}
             />
           </div>
-          <button className="formbtn" style={{ margin: "0 auto" }}>GET APPOINTMENT</button>
+          <motion.button
+            initial={{ y: 30, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="formbtn"
+            style={{ margin: "0 auto 30px auto" }}
+            // style={{ margin: "0 auto" }}
+          >
+            GET APPOINTMENT
+          </motion.button>
         </form>
       </div>
     </>
